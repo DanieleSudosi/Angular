@@ -1,0 +1,18 @@
+<h2 class="h2">Form con Builder</h2>
+<div class="container">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <label for="codInput">Inserisci Codice: </label>
+
+    <input type="text" name="codInput" id="codInput" [formControl] = "myForm.controls['cod']">
+    
+    <div class="divs" *ngIf="!cod.valid"> Codice non valido </div>
+    
+    <div class="divs" *ngIf="cod.hasError('required')"> Codice Obbligatorio </div>
+
+    <div class="divs" *ngIf="myForm.invalid"> Il form non è valido </div>
+
+    <br>
+    <button type="submit" class="btn">Ma che sei Drugato </button>
+
+</form>
+</div>
